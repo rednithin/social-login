@@ -1,6 +1,6 @@
 // admin/pages/custom-page.tsx
 import { useGoogleLogin } from "react-google-login";
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 export default function App() {
   const { signIn, loaded } = useGoogleLogin({
