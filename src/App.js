@@ -18,13 +18,8 @@ export default function App() {
   });
 
   return (
-    <div>
-      {
-        loaded && (
-
-          <button onClick={signIn}>Google sign in</button>
-        )
-      }
+    <div className="flex space-x-5 container mx-auto mt-20">
+      <button disabled={!loaded} className="disabled:bg-gray-400 w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"  onClick={signIn}>Google Login</button>
       <FacebookLogin
         appId="416373366689797"
         autoLoad={false}
@@ -35,7 +30,7 @@ export default function App() {
           console.log({response, code})
         }}
         render={renderProps => (
-          <button onClick={renderProps.onClick}>This is my custom FB button</button>
+          <button disabled={renderProps.isDisabled || renderProps.isProcessing || !renderProps.isSdkLoaded} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10 disabled:bg-gray-400" onClick={renderProps.onClick}>Facebook Login</button>
         )}
         responseType="code"
       />
